@@ -16,15 +16,15 @@ No single lens fully captures this problem. Each dimension below illuminates dif
 
 | Version | Dimension | Core Question | Metaphor | Ancestry |
 |---|---|---|---|---|
-| [V1](layers/) | **Structure** | "What artifacts exist and how do they relate?" | Architecture (building) | Structured Analysis, Design by Contract, Cleanroom |
-| [V2](v2/) | **Flow** | "How does work move through the system?" | Production line (factory) | Theory of Constraints, V-Model, Kanban, PDCA |
-| [V3](v3/) | **Cognitive** | "How do we optimize scarce human attention?" | Mental architecture | Cognitive Load Theory, Miller's Law, Distributed Cognition |
-| [V4](v4/) | **Risk** | "What do we do when we don't know what to build?" | Decision landscape | Cynefin, OODA Loop, Real Options, Spiral Model |
-| [V5](v5/) | **Trust** | "How much autonomy does AI get, and when?" | Delegation spectrum | Principal-Agent Theory, Trust frameworks, Autonomy levels |
-| [V6](v6/) | **Communication** | "Who needs to agree with whom?" | Network topology | Conway's Law, Team Topologies, Sociotechnical Systems |
-| [V7](v7/) | **Information** | "Where does alignment signal degrade?" | Signal transmission | Information Theory, Shannon, SECI Model |
-| [V8](v8/) | **Mapping** | "Do all participants share the same map?" | Cartography | Wardley Maps, Value Streams, DDD Context Maps |
-| [V9](v9/) | **Evolution** | "How does the system adapt when the environment changes?" | Natural selection | Evolutionary Architecture, Fitness Functions, Lean Startup |
+| [V1](v1-layered/) | **Structure** | "What artifacts exist and how do they relate?" | Architecture (building) | Structured Analysis, Design by Contract, Cleanroom |
+| [V2](v2-flow/) | **Flow** | "How does work move through the system?" | Production line (factory) | Theory of Constraints, V-Model, Kanban, PDCA |
+| [V3](v3-attention/) | **Cognitive** | "How do we optimize scarce human attention?" | Mental architecture | Cognitive Load Theory, Miller's Law, Distributed Cognition |
+| [V4](v4-decision/) | **Risk** | "What do we do when we don't know what to build?" | Decision landscape | Cynefin, OODA Loop, Real Options, Spiral Model |
+| [V5](v5-trust/) | **Trust** | "How much autonomy does AI get, and when?" | Delegation spectrum | Principal-Agent Theory, Trust frameworks, Autonomy levels |
+| [V6](v6-network/) | **Communication** | "Who needs to agree with whom?" | Network topology | Conway's Law, Team Topologies, Sociotechnical Systems |
+| [V7](v7-signal/) | **Information** | "Where does alignment signal degrade?" | Signal transmission | Information Theory, Shannon, SECI Model |
+| [V8](v8-map/) | **Mapping** | "Do all participants share the same map?" | Cartography | Wardley Maps, Value Streams, DDD Context Maps |
+| [V9](v9-evolutionary/) | **Evolution** | "How does the system adapt when the environment changes?" | Natural selection | Evolutionary Architecture, Fitness Functions, Lean Startup |
 
 ---
 
