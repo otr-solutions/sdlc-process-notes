@@ -388,16 +388,14 @@ If the system is a graph with 18 nodes, 6 edge types, 7 attributes, and 12 opera
 
 ---
 
-## Relationship to State Model
+## Relationship to Other Models
 
-This graph model defines the **structure** — what exists and how things relate. The companion [STATE_MODEL.md](./STATE_MODEL.md) defines the **dynamics** — how the graph moves, what states nodes and edges can be in, how transitions happen, and who has authority to trigger them.
+This is the first of three companion documents:
 
-| This Document Defines | State Model Defines |
-|----------------------|---------------------|
-| What the 18 nodes ARE | What states each node can be IN |
-| What the 6 edge types ARE | What states each edge can be IN |
-| What the 3 node attributes ARE | How attributes influence transitions |
-| What the 4 edge attributes ARE | How edge quality triggers state changes |
-| What the 12 operations ARE | When and how operations fire to cause transitions |
+| Document | Metaphor | What It Defines |
+|----------|----------|----------------|
+| **GRAPH_MODEL.md** (this document) | **Anatomy** — what exists | 18 nodes, 6 edge types, attributes, operations |
+| [STATE_MODEL.md](./STATE_MODEL.md) | **Physiology** — how it moves | States, transitions, authority, cascades, movement types |
+| [PORTFOLIO_MODEL.md](./PORTFOLIO_MODEL.md) | **Ecology** — how multiple organisms interact | Instance vs singleton nodes, cross-initiative edges, portfolio decisions, arbitration |
 
-The graph is the **anatomy**. The state model is the **physiology**.
+The graph is the **anatomy**. The state model is the **physiology**. The portfolio model is the **ecology**.
