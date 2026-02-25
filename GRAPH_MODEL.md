@@ -407,46 +407,28 @@ If the system is a graph with 18 nodes, 6 edge types, 7 attributes, and 12 opera
 
 ## Full Architecture Stack
 
-```
-┌─────────────────────────────────────────────────────┐
-│  LAYER 6: META-EVOLUTION (future)                   │
-│  "Is the model itself right?"                       │
-│  Evolving the graph structure, edge types, and      │
-│  state rules based on real-world usage              │
-├─────────────────────────────────────────────────────┤
-│  LAYER 5: IMPLEMENTATION (future)                   │
-│  "How does this actually run?"                      │
-│  Tools, databases, APIs, AI interaction patterns    │
-├─────────────────────────────────────────────────────┤
-│  LAYER 4: PORTFOLIO MODEL                           │
-│  "How do multiple initiatives interact?"            │
-│  → PORTFOLIO_MODEL.md                               │
-├─────────────────────────────────────────────────────┤
-│  LAYER 3: STATE MODEL                               │
-│  "How does the graph move?"                         │
-│  → STATE_MODEL.md                                   │
-├─────────────────────────────────────────────────────┤
-│  LAYER 2: GRAPH MODEL  ◀── YOU ARE HERE             │
-│  "What exists and how is it connected?"             │
-│  → GRAPH_MODEL.md (this document)                   │
-├─────────────────────────────────────────────────────┤
-│  LAYER 1: DIMENSIONS (v1-v9)                        │
-│  "The deep knowledge behind each facet"             │
-│  NOT replaced by the graph — referenced BY it       │
-│  → v1-layered/ through v9-evolutionary/             │
-└─────────────────────────────────────────────────────┘
-```
+| Layer | Model | Metaphor | Document |
+|-------|-------|----------|----------|
+| 8 | Meta-Evolution | The evolution | (future) |
+| 7 | Implementation | The engineering | [IMPLEMENTATION_MODEL.md](./IMPLEMENTATION_MODEL.md) |
+| 6 | Interaction | The interface | [INTERACTION_MODEL.md](./INTERACTION_MODEL.md) |
+| 5 | Boundary | The senses | [BOUNDARY_MODEL.md](./BOUNDARY_MODEL.md) |
+| 4 | Portfolio | The ecology | [PORTFOLIO_MODEL.md](./PORTFOLIO_MODEL.md) |
+| 3 | State | The physiology | [STATE_MODEL.md](./STATE_MODEL.md) |
+| **2** | **Graph (this document)** | **The anatomy** | **GRAPH_MODEL.md** |
+| 1 | Dimensions (v1-v9) | The knowledge | v1-layered/ through v9-evolutionary/ |
 
 ---
 
 ## Relationship to Other Models
-
-This is the first of three companion documents:
 
 | Document | Metaphor | What It Defines |
 |----------|----------|----------------|
 | **GRAPH_MODEL.md** (this document) | **Anatomy** — what exists | 18 nodes, 6 edge types, attributes, operations |
 | [STATE_MODEL.md](./STATE_MODEL.md) | **Physiology** — how it moves | States, transitions, authority, cascades, movement types |
 | [PORTFOLIO_MODEL.md](./PORTFOLIO_MODEL.md) | **Ecology** — how multiple organisms interact | Instance vs singleton nodes, cross-initiative edges, portfolio decisions, arbitration |
+| [BOUNDARY_MODEL.md](./BOUNDARY_MODEL.md) | **The senses** — how it perceives and affects reality | Sensors, actuators, feedback loops, boundary health |
+| [INTERACTION_MODEL.md](./INTERACTION_MODEL.md) | **The interface** — how participants engage | Roles, views, AI patterns, trust-graduated collaboration |
+| [IMPLEMENTATION_MODEL.md](./IMPLEMENTATION_MODEL.md) | **The engineering** — how it's built | Graph runtime, node/edge embodiment, event system |
 
 The graph is the **anatomy**. The state model is the **physiology**. The portfolio model is the **ecology**.

@@ -667,46 +667,28 @@ Four cadences for portfolio-wide health checks:
 
 ## Full Architecture Stack
 
-```
-┌─────────────────────────────────────────────────────┐
-│  LAYER 6: META-EVOLUTION (future)                   │
-│  "Is the model itself right?"                       │
-│  Evolving the graph structure, edge types, and      │
-│  state rules based on real-world usage              │
-├─────────────────────────────────────────────────────┤
-│  LAYER 5: IMPLEMENTATION (future)                   │
-│  "How does this actually run?"                      │
-│  Tools, databases, APIs, AI interaction patterns    │
-├─────────────────────────────────────────────────────┤
-│  LAYER 4: PORTFOLIO MODEL  ◀── YOU ARE HERE         │
-│  "How do multiple initiatives interact?"            │
-│  → PORTFOLIO_MODEL.md (this document)               │
-├─────────────────────────────────────────────────────┤
-│  LAYER 3: STATE MODEL                               │
-│  "How does the graph move?"                         │
-│  → STATE_MODEL.md                                   │
-├─────────────────────────────────────────────────────┤
-│  LAYER 2: GRAPH MODEL                               │
-│  "What exists and how is it connected?"             │
-│  → GRAPH_MODEL.md                                   │
-├─────────────────────────────────────────────────────┤
-│  LAYER 1: DIMENSIONS (v1-v9)                        │
-│  "The deep knowledge behind each facet"             │
-│  NOT replaced by the graph — referenced BY it       │
-│  → v1-layered/ through v9-evolutionary/             │
-└─────────────────────────────────────────────────────┘
-```
+| Layer | Model | Metaphor | Document |
+|-------|-------|----------|----------|
+| 8 | Meta-Evolution | The evolution | (future) |
+| 7 | Implementation | The engineering | [IMPLEMENTATION_MODEL.md](./IMPLEMENTATION_MODEL.md) |
+| 6 | Interaction | The interface | [INTERACTION_MODEL.md](./INTERACTION_MODEL.md) |
+| 5 | Boundary | The senses | [BOUNDARY_MODEL.md](./BOUNDARY_MODEL.md) |
+| **4** | **Portfolio (this document)** | **The ecology** | **PORTFOLIO_MODEL.md** |
+| 3 | State | The physiology | [STATE_MODEL.md](./STATE_MODEL.md) |
+| 2 | Graph | The anatomy | [GRAPH_MODEL.md](./GRAPH_MODEL.md) |
+| 1 | Dimensions (v1-v9) | The knowledge | v1-layered/ through v9-evolutionary/ |
 
 ---
 
 ## Relationship to Other Models
-
-This is the third of three companion documents:
 
 | Document | Metaphor | What It Defines |
 |----------|----------|----------------|
 | [GRAPH_MODEL.md](./GRAPH_MODEL.md) | **Anatomy** — what exists | 18 nodes, 6 edge types, attributes, operations |
 | [STATE_MODEL.md](./STATE_MODEL.md) | **Physiology** — how it moves | States, transitions, authority, cascades, movement types |
 | **PORTFOLIO_MODEL.md** (this document) | **Ecology** — how multiple organisms interact | Instance vs singleton nodes, cross-initiative edges, portfolio decisions, arbitration |
+| [BOUNDARY_MODEL.md](./BOUNDARY_MODEL.md) | **The senses** — how it perceives and affects reality | Sensors, actuators, feedback loops, boundary health |
+| [INTERACTION_MODEL.md](./INTERACTION_MODEL.md) | **The interface** — how participants engage | Roles, views, AI patterns, trust-graduated collaboration |
+| [IMPLEMENTATION_MODEL.md](./IMPLEMENTATION_MODEL.md) | **The engineering** — how it's built | Graph runtime, node/edge embodiment, event system |
 
 The graph model describes **one initiative's structure**. The state model describes **one initiative's dynamics**. The portfolio model describes **how many initiatives coexist in shared reality**.
