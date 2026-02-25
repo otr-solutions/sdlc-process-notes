@@ -468,15 +468,23 @@ TIME 8: Next Cycle (PULSE triggers)
 
 ---
 
-## Relationship to Graph Model
+## Relationship to Other Models
 
-This state model operates ON TOP of the graph defined in [GRAPH_MODEL.md](./GRAPH_MODEL.md):
+This is the second of three companion documents:
 
-| Graph Model Defines | State Model Defines |
-|--------------------|--------------------|
-| What the 18 nodes ARE | What states each node can be IN |
-| What the 6 edge types ARE | What states each edge can be IN |
-| What the 3 attributes ARE | How attributes influence transitions |
-| What the 12 operations ARE | When and how operations fire to cause transitions |
+| Document | Metaphor | What It Defines |
+|----------|----------|----------------|
+| [GRAPH_MODEL.md](./GRAPH_MODEL.md) | **Anatomy** — what exists | 18 nodes, 6 edge types, attributes, operations |
+| **STATE_MODEL.md** (this document) | **Physiology** — how it moves | States, transitions, authority, cascades, movement types |
+| [PORTFOLIO_MODEL.md](./PORTFOLIO_MODEL.md) | **Ecology** — how multiple organisms interact | Instance vs singleton nodes, cross-initiative edges, portfolio decisions, arbitration |
 
-The graph is the **anatomy**. The state model is the **physiology**.
+The graph is the **anatomy**. The state model is the **physiology**. The portfolio model is the **ecology**.
+
+### Extensions in Portfolio Model
+
+The portfolio model extends several concepts from this document:
+- **Node states** are extended with singleton-specific states: CONTENDED, OVERLOADED, STARVED
+- **Portfolio initiative states** (PROPOSED, QUEUED, ACTIVE, BLOCKED, PAUSED, COMPLETED, KILLED) operate at a higher level than node states
+- **Cascade rules** are extended with cross-initiative cascades along DEPENDS, CONFLICTS, COMPETES, AMPLIFIES, and KILL edges
+- **PULSE** is extended to four portfolio-level cadences: Resource (weekly), Conflict (continuous), Value (monthly), Strategy (quarterly)
+- **Authority matrix** is extended from blast_radius × reversibility to impact_scope × strategic_weight
