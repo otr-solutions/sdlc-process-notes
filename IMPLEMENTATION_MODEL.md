@@ -2,9 +2,29 @@
 
 > **"Now that we know what the graph is (anatomy), how it moves (physiology), how initiatives coexist (ecology), how it senses reality (the senses), and how humans and AI interact with it (the interface) — how do we actually build it?"**
 
-This document defines the engineering of the system that runs Layers 2–6. It is intentionally focused: boundary concerns belong in [BOUNDARY_MODEL.md](./BOUNDARY_MODEL.md), interaction concerns belong in [INTERACTION_MODEL.md](./INTERACTION_MODEL.md).
+This document defines the engineering spine that constrains and enables every core model. It maps abstract graph concepts to concrete tools, defines the graph runtime, and describes how state movement patterns (FLOW, RIPPLE, PULSE) are implemented in practice. It is intentionally focused: boundary concerns belong in [BOUNDARY_MODEL.md](./BOUNDARY_MODEL.md), interaction concerns belong in [INTERACTION_MODEL.md](./INTERACTION_MODEL.md).
 
-This is **Layer 7** in the 8-layer architecture stack. Metaphor: **The engineering — how the system is built.**
+This is **Spine C** in the architecture. Metaphor: **The engineering — how the system is built.**
+
+Implementation is a cross-cutting spine, not a layer. It doesn't sit "on top of" the core models — it threads through all of them simultaneously, constraining what's buildable and enabling what's possible.
+
+**Cross-references**: [GRAPH_MODEL.md](./GRAPH_MODEL.md) · [STATE_MODEL.md](./STATE_MODEL.md) · [PORTFOLIO_MODEL.md](./PORTFOLIO_MODEL.md) · [BOUNDARY_MODEL.md](./BOUNDARY_MODEL.md) · [INTERACTION_MODEL.md](./INTERACTION_MODEL.md)
+
+---
+
+## Where Implementation Threads Through Core Models
+
+Implementation is genuinely cross-cutting — it constrains and enables every core model:
+
+| Core Model | How Implementation Threads Through |
+|-----------|-----------------------------------|
+| [Graph](./GRAPH_MODEL.md) | Constrains what nodes/edges can look like (tools determine artifact format) |
+| [State](./STATE_MODEL.md) | Determines how transitions are detected and fired (webhooks, cron, events) |
+| [Portfolio](./PORTFOLIO_MODEL.md) | Determines how portfolio is visualized and managed (project tools) |
+| [Boundary](./BOUNDARY_MODEL.md) | Determines which sensors are feasible (what monitoring/analytics exist) |
+| [Interaction](./INTERACTION_MODEL.md) | Determines what views and AI patterns are buildable (platform capabilities) |
+
+The abstract model says "nodes have state." The implementation spine says "state is represented as GitHub Issue labels." The abstract model says "PULSE runs on a cadence." The implementation spine says "PULSE is a GitHub Actions cron job." The gap between abstract model and concrete system is exactly what this spine bridges.
 
 ---
 
@@ -90,7 +110,7 @@ The system should track its own health, not just initiative health:
 | Average FEEDS edge quality | Is signal quality across the system improving? |
 | Blast radius computation accuracy | Are authority decisions being made on correct data? |
 
-These feed into Layer 8 (Meta-Evolution) — the system learns whether its own model is correct.
+These feed into [Meta-Evolution](./META_EVOLUTION_MODEL.md) — the system learns whether its own model is correct.
 
 ---
 
@@ -275,8 +295,8 @@ How implementation connects to the other models:
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│  LAYER 7: IMPLEMENTATION                                        │
-│                                                                 │
+│  SPINE C: IMPLEMENTATION                                         │
+│                                                                  │
 │  ┌──────────────┐  ┌──────────────┐  ┌──────────────────────┐  │
 │  │ Graph Runtime│  │Event System  │  │ Node/Edge Embodiment │  │
 │  │ (data model) │  │(FLOW/RIPPLE/ │  │ (GitHub Issues/PRs/  │  │
@@ -287,15 +307,16 @@ How implementation connects to the other models:
           │                 │                      │
           ▼                 ▼                      ▼
 ┌──────────────────┐  ┌─────────────┐  ┌────────────────────────┐
-│  LAYER 5:        │  │  LAYER 6:   │  │  LAYERS 2-4:           │
-│  BOUNDARY MODEL  │  │  INTERACTION│  │  GRAPH / STATE /       │
-│                  │  │  MODEL      │  │  PORTFOLIO MODELS      │
-│  Sensors:        │  │             │  │                        │
-│  - Connect to    │  │  Views:     │  │  Rules implemented:    │
-│    external data │  │  - My Work  │  │  - State machines      │
-│  Actuators:      │  │  - Tension  │  │  - Cascade rules       │
-│  - Push changes  │  │  - Signal   │  │  - Authority matrix    │
-│    to real world │  │  - etc.     │  │  - Preconditions       │
+│  CORE MODEL 4:   │  │  CORE MODEL │  │  CORE MODELS 1-3:      │
+│  BOUNDARY MODEL  │  │  5:         │  │  GRAPH / STATE /       │
+│                  │  │  INTERACTION│  │  PORTFOLIO MODELS      │
+│  Sensors:        │  │  MODEL      │  │                        │
+│  - Connect to    │  │             │  │  Rules implemented:    │
+│    external data │  │  Views:     │  │  - State machines      │
+│  Actuators:      │  │  - My Work  │  │  - Cascade rules       │
+│  - Push changes  │  │  - Tension  │  │  - Authority matrix    │
+│    to real world │  │  - Signal   │  │  - Preconditions       │
+│                  │  │  - etc.     │  │                        │
 └──────────────────┘  └─────────────┘  └────────────────────────┘
 ```
 
@@ -306,18 +327,51 @@ How implementation connects to the other models:
 
 ---
 
-## Full Architecture Stack
+## System Architecture
 
-| Layer | Model | Metaphor | Document |
-|-------|-------|----------|----------|
-| 8 | Meta-Evolution | The evolution | (future) |
-| **7** | **Implementation (this document)** | **The engineering** | **IMPLEMENTATION_MODEL.md** |
-| 6 | Interaction | The interface | [INTERACTION_MODEL.md](./INTERACTION_MODEL.md) |
-| 5 | Boundary | The senses | [BOUNDARY_MODEL.md](./BOUNDARY_MODEL.md) |
-| 4 | Portfolio | The ecology | [PORTFOLIO_MODEL.md](./PORTFOLIO_MODEL.md) |
-| 3 | State | The physiology | [STATE_MODEL.md](./STATE_MODEL.md) |
-| 2 | Graph | The anatomy | [GRAPH_MODEL.md](./GRAPH_MODEL.md) |
-| 1 | Dimensions (v1-v9) | The knowledge | v1-layered/ through v9-evolutionary/ |
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                   SYSTEM ARCHITECTURE                            │
+│                                                                  │
+│   CORE MODELS                    CROSS-CUTTING SPINES            │
+│   (dependency ordered)           (thread through all)            │
+│                                                                  │
+│   ┌─────────────────────┐       ┌──────────────────────────┐    │
+│   │ 5. Interaction      │       │ A. Dimensions (v1-v9)    │    │
+│   │    "How participants│◀══════│    "The knowledge"       │    │
+│   │     engage"         │       │                          │    │
+│   ├─────────────────────┤       ├──────────────────────────┤    │
+│   │ 4. Boundary         │       │ B. Traceability          │    │
+│   │    "How it connects │◀══════│    "The memory"          │    │
+│   │     to reality"     │       │                          │    │
+│   ├─────────────────────┤       ├──────────────────────────┤    │
+│   │ 3. Portfolio        │       │ C. Implementation        │    │
+│   │    "How many        │◀══════│    "The engineering"     │    │
+│   │     interact"       │       │    ◀── YOU ARE HERE      │    │
+│   ├─────────────────────┤       ├──────────────────────────┤    │
+│   │ 2. State            │       │ D. Meta-Evolution        │    │
+│   │    "How it moves"   │◀══════│    "The learning"        │    │
+│   │                     │       │                          │    │
+│   ├─────────────────────┤       └──────────────────────────┘    │
+│   │ 1. Graph            │                                       │
+│   │    "What exists"    │       Each spine connects to EVERY    │
+│   │                     │       core model, not just the one    │
+│   └─────────────────────┘       shown with the arrow            │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+| Type | # | Model | Metaphor | Document |
+|------|---|-------|----------|----------|
+| Core | 1 | Graph | The anatomy | [GRAPH_MODEL.md](./GRAPH_MODEL.md) |
+| Core | 2 | State | The physiology | [STATE_MODEL.md](./STATE_MODEL.md) |
+| Core | 3 | Portfolio | The ecology | [PORTFOLIO_MODEL.md](./PORTFOLIO_MODEL.md) |
+| Core | 4 | Boundary | The senses | [BOUNDARY_MODEL.md](./BOUNDARY_MODEL.md) |
+| Core | 5 | Interaction | The interface | [INTERACTION_MODEL.md](./INTERACTION_MODEL.md) |
+| Spine | A | Dimensions | The knowledge | v1-v9 folders + [DIMENSION_INDEX.md](./DIMENSION_INDEX.md) |
+| Spine | B | Traceability | The memory | [TRACEABILITY_MODEL.md](./TRACEABILITY_MODEL.md) |
+| Spine | C | **Implementation (this document)** | **The engineering** | **IMPLEMENTATION_MODEL.md** |
+| Spine | D | Meta-Evolution | The learning | [META_EVOLUTION_MODEL.md](./META_EVOLUTION_MODEL.md) |
 
 ---
 
@@ -331,5 +385,12 @@ How implementation connects to the other models:
 | [BOUNDARY_MODEL.md](./BOUNDARY_MODEL.md) | **The senses** — how it perceives and affects reality | Sensors, actuators, feedback loops, boundary health |
 | [INTERACTION_MODEL.md](./INTERACTION_MODEL.md) | **The interface** — how participants engage | Roles, views, AI patterns, trust-graduated collaboration |
 | **IMPLEMENTATION_MODEL.md** (this document) | **The engineering** — how it's built | Graph runtime, node/edge embodiment, event system, integration |
+| [TRACEABILITY_MODEL.md](./TRACEABILITY_MODEL.md) | **The memory** — complete history | Event log, snapshots, audit trail across all models |
+| [META_EVOLUTION_MODEL.md](./META_EVOLUTION_MODEL.md) | **The learning** — model fitness | How the models improve based on operational data |
 
-The implementation model is the engineering layer. It takes everything defined in Layers 2–6 and answers the question: **how does this actually run?** It maps abstract graph concepts to concrete tools, and defines the plumbing that makes the whole machine work.
+The implementation spine is the engineering. It takes everything defined across the core models and answers the question: **how does this actually run?** It maps abstract graph concepts to concrete tools, and defines the plumbing that makes the whole machine work.
+
+**The key insight**: Core models have a dependency order (each depends on those below it). Spines are genuinely cross-cutting — they thread through all core models simultaneously. Implementation is not a "top layer" — it constrains and enables every layer from Graph to Interaction.
+
+- Core models answer: "What is the system?"
+- Spines answer: "How does the system operate across all models?"

@@ -4,7 +4,7 @@
 
 This document defines how the graph connects to reality — the membrane between the model and the external world. Without this, the graph is a closed system that can't sense reality or affect it.
 
-This is **Layer 5** in the 8-layer architecture stack. Metaphor: **The senses — how the system perceives and affects its environment.**
+This is **Core Model 4** in the architecture. Metaphor: **The senses — how the system perceives and affects its environment.**
 
 **Cross-references**: [GRAPH_MODEL.md](./GRAPH_MODEL.md) · [STATE_MODEL.md](./STATE_MODEL.md) · [PORTFOLIO_MODEL.md](./PORTFOLIO_MODEL.md)
 
@@ -282,18 +282,52 @@ FICTION RISK: FLOW continues on stale sensor data
 
 ---
 
-## Full Architecture Stack
+## System Architecture
 
-| Layer | Model | Metaphor | Document |
-|-------|-------|----------|----------|
-| 8 | Meta-Evolution | The evolution | (future) |
-| 7 | Implementation | The engineering | [IMPLEMENTATION_MODEL.md](./IMPLEMENTATION_MODEL.md) |
-| 6 | Interaction | The interface | [INTERACTION_MODEL.md](./INTERACTION_MODEL.md) |
-| **5** | **Boundary (this document)** | **The senses** | **BOUNDARY_MODEL.md** |
-| 4 | Portfolio | The ecology | [PORTFOLIO_MODEL.md](./PORTFOLIO_MODEL.md) |
-| 3 | State | The physiology | [STATE_MODEL.md](./STATE_MODEL.md) |
-| 2 | Graph | The anatomy | [GRAPH_MODEL.md](./GRAPH_MODEL.md) |
-| 1 | Dimensions (v1-v9) | The knowledge | v1-layered/ through v9-evolutionary/ |
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                   SYSTEM ARCHITECTURE                            │
+│                                                                  │
+│   CORE MODELS                    CROSS-CUTTING SPINES            │
+│   (dependency ordered)           (thread through all)            │
+│                                                                  │
+│   ┌─────────────────────┐       ┌──────────────────────────┐    │
+│   │ 5. Interaction      │       │ A. Dimensions (v1-v9)    │    │
+│   │    "How participants│◀══════│    "The knowledge"       │    │
+│   │     engage"         │       │                          │    │
+│   ├─────────────────────┤       ├──────────────────────────┤    │
+│   │ 4. Boundary         │       │ B. Traceability          │    │
+│   │    "How it connects │◀══════│    "The memory"          │    │
+│   │     to reality"     │       │                          │    │
+│   │    ◀── YOU ARE HERE │       │                          │    │
+│   ├─────────────────────┤       ├──────────────────────────┤    │
+│   │ 3. Portfolio        │       │ C. Implementation        │    │
+│   │    "How many        │◀══════│    "The engineering"     │    │
+│   │     interact"       │       │                          │    │
+│   ├─────────────────────┤       ├──────────────────────────┤    │
+│   │ 2. State            │       │ D. Meta-Evolution        │    │
+│   │    "How it moves"   │◀══════│    "The learning"        │    │
+│   │                     │       │                          │    │
+│   ├─────────────────────┤       └──────────────────────────┘    │
+│   │ 1. Graph            │                                       │
+│   │    "What exists"    │       Each spine connects to EVERY    │
+│   │                     │       core model, not just the one    │
+│   └─────────────────────┘       shown with the arrow            │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+| Type | # | Model | Metaphor | Document |
+|------|---|-------|----------|----------|
+| Core | 1 | Graph | The anatomy | [GRAPH_MODEL.md](./GRAPH_MODEL.md) |
+| Core | 2 | State | The physiology | [STATE_MODEL.md](./STATE_MODEL.md) |
+| Core | 3 | Portfolio | The ecology | [PORTFOLIO_MODEL.md](./PORTFOLIO_MODEL.md) |
+| Core | 4 | **Boundary (this document)** | **The senses** | **BOUNDARY_MODEL.md** |
+| Core | 5 | Interaction | The interface | [INTERACTION_MODEL.md](./INTERACTION_MODEL.md) |
+| Spine | A | Dimensions | The knowledge | v1-v9 folders + [DIMENSION_INDEX.md](./DIMENSION_INDEX.md) |
+| Spine | B | Traceability | The memory | [TRACEABILITY_MODEL.md](./TRACEABILITY_MODEL.md) |
+| Spine | C | Implementation | The engineering | [IMPLEMENTATION_MODEL.md](./IMPLEMENTATION_MODEL.md) |
+| Spine | D | Meta-Evolution | The learning | [META_EVOLUTION_MODEL.md](./META_EVOLUTION_MODEL.md) |
 
 ---
 
@@ -307,5 +341,7 @@ FICTION RISK: FLOW continues on stale sensor data
 | **BOUNDARY_MODEL.md** (this document) | **The senses** — how it perceives and affects reality | Sensors, actuators, feedback loops, boundary health |
 | [INTERACTION_MODEL.md](./INTERACTION_MODEL.md) | **The interface** — how participants engage | Roles, views, AI patterns, trust-graduated collaboration |
 | [IMPLEMENTATION_MODEL.md](./IMPLEMENTATION_MODEL.md) | **The engineering** — how it's built | Graph runtime, node/edge embodiment, event system |
+| [TRACEABILITY_MODEL.md](./TRACEABILITY_MODEL.md) | **The memory** — complete history | Event log, snapshots, audit trail across all models |
+| [META_EVOLUTION_MODEL.md](./META_EVOLUTION_MODEL.md) | **The learning** — model fitness | How the models improve based on operational data |
 
 The boundary model is the **sensory layer**. It defines what the graph can perceive (sensors) and what it can affect (actuators). Without it, the graph is a closed system — structurally complete but disconnected from the world it's supposed to model.
