@@ -6,6 +6,19 @@ This document defines the states, transitions, authority model, and movement pat
 
 ---
 
+## Relationship to the Dimensions (v1–v9)
+
+This model does **not replace** the original nine dimensions. The state model defines *when* and *how* transitions happen, but the **judgment** behind those transitions comes from the dimension content.
+
+| Layer | Purpose | Example |
+|-------|---------|---------|
+| **Dimensions** (v1–v9) | Knowledge — how to make good decisions | "Should we revise this bet?" → read v4-decision |
+| **State Model** (this document) | Dynamics — when transitions happen and what they trigger | "What cascades when a bet goes stale?" → apply state rules |
+
+The state model is the physics. The dimensions are the wisdom.
+
+---
+
 ## Node States (7)
 
 Every node in the graph can be in one of the following states:
@@ -185,6 +198,22 @@ Trust level (T1-T5) further modulates authority for specific transitions:
 | ACTIVE → RETIRED | Human decides | AI proposes, human confirms | AI proposes, human confirms |
 
 **Note**: CONTESTED resolution is ALWAYS human, regardless of trust level. Tensions are by definition where human judgment is irreplaceable.
+
+---
+
+### Authority as a Cross-Cutting Concern
+
+The question "who decides?" appears in three places across the model documents:
+
+| Model | Authority Mechanism | Determines |
+|-------|-------------------|------------|
+| **State Model** (this document) | blast_radius × reversibility | Who approves node/edge transitions |
+| [Portfolio Model](./PORTFOLIO_MODEL.md) | impact_scope × strategic_weight | Who arbitrates cross-initiative decisions |
+| [v5-trust](./v5-trust/TRUST_GRADUATED_DEVELOPMENT.md) | trust_level (T1-T5) | What AI can do autonomously |
+
+These three mechanisms are complementary views of the same fundamental question. Trust level sets the **baseline** (what AI is allowed to do). Blast radius determines the **escalation** (when humans must approve). Impact scope and strategic weight determine the **portfolio-level authority** (who makes cross-initiative decisions).
+
+They compose: a transition on a node with T3 trust that has low blast radius and is single-initiative tactical = AI decides. The same transition at T3 but with high blast radius and systemic strategic impact = human decides regardless of trust level.
 
 ---
 
@@ -464,6 +493,40 @@ TIME 8: Next Cycle (PULSE triggers)
 │    Determined by trust_level                           │
 │    Higher trust = faster FLOW = fewer human gates      │
 └────────────────────────────────────────────────────────┘
+```
+
+---
+
+## Full Architecture Stack
+
+```
+┌─────────────────────────────────────────────────────┐
+│  LAYER 6: META-EVOLUTION (future)                   │
+│  "Is the model itself right?"                       │
+│  Evolving the graph structure, edge types, and      │
+│  state rules based on real-world usage              │
+├─────────────────────────────────────────────────────┤
+│  LAYER 5: IMPLEMENTATION (future)                   │
+│  "How does this actually run?"                      │
+│  Tools, databases, APIs, AI interaction patterns    │
+├─────────────────────────────────────────────────────┤
+│  LAYER 4: PORTFOLIO MODEL                           │
+│  "How do multiple initiatives interact?"            │
+│  → PORTFOLIO_MODEL.md                               │
+├─────────────────────────────────────────────────────┤
+│  LAYER 3: STATE MODEL  ◀── YOU ARE HERE             │
+│  "How does the graph move?"                         │
+│  → STATE_MODEL.md (this document)                   │
+├─────────────────────────────────────────────────────┤
+│  LAYER 2: GRAPH MODEL                               │
+│  "What exists and how is it connected?"             │
+│  → GRAPH_MODEL.md                                   │
+├─────────────────────────────────────────────────────┤
+│  LAYER 1: DIMENSIONS (v1-v9)                        │
+│  "The deep knowledge behind each facet"             │
+│  NOT replaced by the graph — referenced BY it       │
+│  → v1-layered/ through v9-evolutionary/             │
+└─────────────────────────────────────────────────────┘
 ```
 
 ---
