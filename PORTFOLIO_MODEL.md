@@ -665,18 +665,52 @@ Four cadences for portfolio-wide health checks:
 
 ---
 
-## Full Architecture Stack
+## System Architecture
 
-| Layer | Model | Metaphor | Document |
-|-------|-------|----------|----------|
-| 8 | Meta-Evolution | The evolution | (future) |
-| 7 | Implementation | The engineering | [IMPLEMENTATION_MODEL.md](./IMPLEMENTATION_MODEL.md) |
-| 6 | Interaction | The interface | [INTERACTION_MODEL.md](./INTERACTION_MODEL.md) |
-| 5 | Boundary | The senses | [BOUNDARY_MODEL.md](./BOUNDARY_MODEL.md) |
-| **4** | **Portfolio (this document)** | **The ecology** | **PORTFOLIO_MODEL.md** |
-| 3 | State | The physiology | [STATE_MODEL.md](./STATE_MODEL.md) |
-| 2 | Graph | The anatomy | [GRAPH_MODEL.md](./GRAPH_MODEL.md) |
-| 1 | Dimensions (v1-v9) | The knowledge | v1-layered/ through v9-evolutionary/ |
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                   SYSTEM ARCHITECTURE                            │
+│                                                                  │
+│   CORE MODELS                    CROSS-CUTTING SPINES            │
+│   (dependency ordered)           (thread through all)            │
+│                                                                  │
+│   ┌─────────────────────┐       ┌──────────────────────────┐    │
+│   │ 5. Interaction      │       │ A. Dimensions (v1-v9)    │    │
+│   │    "How participants│◀══════│    "The knowledge"       │    │
+│   │     engage"         │       │                          │    │
+│   ├─────────────────────┤       ├──────────────────────────┤    │
+│   │ 4. Boundary         │       │ B. Traceability          │    │
+│   │    "How it connects │◀══════│    "The memory"          │    │
+│   │     to reality"     │       │                          │    │
+│   ├─────────────────────┤       ├──────────────────────────┤    │
+│   │ 3. Portfolio        │       │ C. Implementation        │    │
+│   │    "How many        │◀══════│    "The engineering"     │    │
+│   │     interact"       │       │                          │    │
+│   │    ◀── YOU ARE HERE │       │                          │    │
+│   ├─────────────────────┤       ├──────────────────────────┤    │
+│   │ 2. State            │       │ D. Meta-Evolution        │    │
+│   │    "How it moves"   │◀══════│    "The learning"        │    │
+│   │                     │       │                          │    │
+│   ├─────────────────────┤       └──────────────────────────┘    │
+│   │ 1. Graph            │                                       │
+│   │    "What exists"    │       Each spine connects to EVERY    │
+│   │                     │       core model, not just the one    │
+│   └─────────────────────┘       shown with the arrow            │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+| Type | # | Model | Metaphor | Document |
+|------|---|-------|----------|----------|
+| Core | 1 | Graph | The anatomy | [GRAPH_MODEL.md](./GRAPH_MODEL.md) |
+| Core | 2 | State | The physiology | [STATE_MODEL.md](./STATE_MODEL.md) |
+| Core | 3 | **Portfolio (this document)** | **The ecology** | **PORTFOLIO_MODEL.md** |
+| Core | 4 | Boundary | The senses | [BOUNDARY_MODEL.md](./BOUNDARY_MODEL.md) |
+| Core | 5 | Interaction | The interface | [INTERACTION_MODEL.md](./INTERACTION_MODEL.md) |
+| Spine | A | Dimensions | The knowledge | v1-v9 folders + [DIMENSION_INDEX.md](./DIMENSION_INDEX.md) |
+| Spine | B | Traceability | The memory | [TRACEABILITY_MODEL.md](./TRACEABILITY_MODEL.md) |
+| Spine | C | Implementation | The engineering | [IMPLEMENTATION_MODEL.md](./IMPLEMENTATION_MODEL.md) |
+| Spine | D | Meta-Evolution | The learning | [META_EVOLUTION_MODEL.md](./META_EVOLUTION_MODEL.md) |
 
 ---
 
@@ -690,5 +724,7 @@ Four cadences for portfolio-wide health checks:
 | [BOUNDARY_MODEL.md](./BOUNDARY_MODEL.md) | **The senses** — how it perceives and affects reality | Sensors, actuators, feedback loops, boundary health |
 | [INTERACTION_MODEL.md](./INTERACTION_MODEL.md) | **The interface** — how participants engage | Roles, views, AI patterns, trust-graduated collaboration |
 | [IMPLEMENTATION_MODEL.md](./IMPLEMENTATION_MODEL.md) | **The engineering** — how it's built | Graph runtime, node/edge embodiment, event system |
+| [TRACEABILITY_MODEL.md](./TRACEABILITY_MODEL.md) | **The memory** — complete history | Event log, snapshots, audit trail across all models |
+| [META_EVOLUTION_MODEL.md](./META_EVOLUTION_MODEL.md) | **The learning** — model fitness | How the models improve based on operational data |
 
 The graph model describes **one initiative's structure**. The state model describes **one initiative's dynamics**. The portfolio model describes **how many initiatives coexist in shared reality**.
