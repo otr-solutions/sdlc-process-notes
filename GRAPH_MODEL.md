@@ -10,6 +10,19 @@ A **graph model** — nodes, edges, and attributes — captures the real structu
 
 ---
 
+## Relationship to the Dimensions (v1–v9)
+
+This model does **not replace** the original nine dimensions. The dimensions are the **reasoning layer** — they contain the deep knowledge about *how to think* about each facet of software delivery. The graph model is the **coordination layer** — it tracks what's connected, what state things are in, and how work flows.
+
+| Layer | Purpose | Example |
+|-------|---------|---------|
+| **Dimensions** (v1–v9) | Knowledge — how to think about each facet | "How do I decompose well?" → read v1-layered |
+| **Graph Model** (this document) | Coordination — how facets connect | "What depends on what?" → query the graph |
+
+When a node in the graph requires a decision (e.g., "How should L2 Decomposition break down this outcome?"), the answer comes from the **dimension content**, not from the graph structure. The graph tells you *which* decision is needed and *what it connects to*. The dimension tells you *how to make that decision well*.
+
+---
+
 ## Nodes (18)
 
 A node is something that **has persistent state, produces artifacts, or requires a decision**. If something purely moves information between other things, it's an edge, not a node.
@@ -234,6 +247,8 @@ Node: L4 Generation
 └── Changes the behavior of all CHECKS edges FROM this node
 ```
 
+**Important**: Trust level is not a static label. It has its own assessment, promotion, and demotion lifecycle documented in [v5-trust](./v5-trust/TRUST_GRADUATED_DEVELOPMENT.md). Moving from T2 to T3 requires evidence that AI performance at T2 has been consistently reliable. Trust can also be *demoted* when CHECKS edges reveal quality problems. The trust_level attribute in the graph captures the *current level*; the v5-trust dimension documents the *graduation process* for changing it.
+
 ### Bandwidth (from v6-network: N3)
 
 An attribute on N1 Topology and by extension on teams. Determines capacity constraints.
@@ -270,6 +285,8 @@ Every edge in the graph — especially FEEDS and CHECKS edges — carries signal
 | `correction_needed` | Boolean — triggers P4 Correct behavior | P4 Correct |
 
 These attributes make v7-signal a **quality layer on top of all edges** rather than a parallel dimension.
+
+**Important**: These attributes capture the *what* (quality scores), but the *why* behind signal degradation is documented in [v7-signal](./v7-signal/SIGNAL_PRESERVING_DEVELOPMENT.md). When `encode_quality` is low, v7-signal explains the diagnostic patterns: Was the spec ambiguous? Was domain language inconsistent? Was the audience wrong? The edge attributes are the **measurement**; the v7-signal dimension is the **diagnostic reference** for understanding and fixing degradation.
 
 ---
 
@@ -385,6 +402,40 @@ If the system is a graph with 18 nodes, 6 edge types, 7 attributes, and 12 opera
 6. **What operations are pending** — what needs to happen next
 
 **TENSIONS are the most valuable thing to surface.** Everything else is plumbing — information flowing, constraints applying, sequences unfolding. But tensions are where the interesting decisions live, where trade-offs get made, and where human judgment is irreplaceable.
+
+---
+
+## Full Architecture Stack
+
+```
+┌─────────────────────────────────────────────────────┐
+│  LAYER 6: META-EVOLUTION (future)                   │
+│  "Is the model itself right?"                       │
+│  Evolving the graph structure, edge types, and      │
+│  state rules based on real-world usage              │
+├─────────────────────────────────────────────────────┤
+│  LAYER 5: IMPLEMENTATION (future)                   │
+│  "How does this actually run?"                      │
+│  Tools, databases, APIs, AI interaction patterns    │
+├─────────────────────────────────────────────────────┤
+│  LAYER 4: PORTFOLIO MODEL                           │
+│  "How do multiple initiatives interact?"            │
+│  → PORTFOLIO_MODEL.md                               │
+├─────────────────────────────────────────────────────┤
+│  LAYER 3: STATE MODEL                               │
+│  "How does the graph move?"                         │
+│  → STATE_MODEL.md                                   │
+├─────────────────────────────────────────────────────┤
+│  LAYER 2: GRAPH MODEL  ◀── YOU ARE HERE             │
+│  "What exists and how is it connected?"             │
+│  → GRAPH_MODEL.md (this document)                   │
+├─────────────────────────────────────────────────────┤
+│  LAYER 1: DIMENSIONS (v1-v9)                        │
+│  "The deep knowledge behind each facet"             │
+│  NOT replaced by the graph — referenced BY it       │
+│  → v1-layered/ through v9-evolutionary/             │
+└─────────────────────────────────────────────────────┘
+```
 
 ---
 

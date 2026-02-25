@@ -6,6 +6,19 @@ Everything in [GRAPH_MODEL.md](./GRAPH_MODEL.md) and [STATE_MODEL.md](./STATE_MO
 
 ---
 
+## Relationship to the Dimensions (v1–v9)
+
+This model does **not replace** the original nine dimensions. Portfolio decisions (PRIORITIZE, SEQUENCE, RESOLVE, KILL, SPAWN) require **judgment** that comes from the dimension content — particularly v4-decision (how to frame and bet), v8-map (shared awareness), and v9-evolutionary (learning and adaptation).
+
+| Layer | Purpose | Example |
+|-------|---------|---------|
+| **Dimensions** (v1–v9) | Knowledge — how to make good decisions | "Which initiative is higher value?" → read v8-map (M1 Value Map) |
+| **Portfolio Model** (this document) | Ecology — how initiatives interact and compete | "What happens when we kill Initiative A?" → trace cascade rules |
+
+The portfolio model tells you *what's connected and what cascades*. The dimensions tell you *whether it's a good idea*.
+
+---
+
 ## The Core Problem: Shared Resources
 
 In a single-initiative graph, every node "owns" its own state and transitions happen cleanly. When multiple initiative graphs run simultaneously, they **collide** at shared nodes:
@@ -421,6 +434,10 @@ KILLING Initiative A:
 
 This extends the authority matrices from [STATE_MODEL.md](./STATE_MODEL.md) to the portfolio level.
 
+### Authority as a Cross-Cutting Concern
+
+This authority matrix extends the mechanisms defined in the other model documents. See [STATE_MODEL.md — Authority as a Cross-Cutting Concern](./STATE_MODEL.md) for how all three authority mechanisms (trust level, blast radius, impact scope) compose together.
+
 ### The Portfolio Authority Matrix
 
 Authority is determined by **impact scope** × **strategic weight**:
@@ -644,6 +661,40 @@ Four cadences for portfolio-wide health checks:
 │    AMPLIFIES: success → amplified initiatives gain value   │
 │    KILL:      death → cascades through ALL edge types      │
 └────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## Full Architecture Stack
+
+```
+┌─────────────────────────────────────────────────────┐
+│  LAYER 6: META-EVOLUTION (future)                   │
+│  "Is the model itself right?"                       │
+│  Evolving the graph structure, edge types, and      │
+│  state rules based on real-world usage              │
+├─────────────────────────────────────────────────────┤
+│  LAYER 5: IMPLEMENTATION (future)                   │
+│  "How does this actually run?"                      │
+│  Tools, databases, APIs, AI interaction patterns    │
+├─────────────────────────────────────────────────────┤
+│  LAYER 4: PORTFOLIO MODEL  ◀── YOU ARE HERE         │
+│  "How do multiple initiatives interact?"            │
+│  → PORTFOLIO_MODEL.md (this document)               │
+├─────────────────────────────────────────────────────┤
+│  LAYER 3: STATE MODEL                               │
+│  "How does the graph move?"                         │
+│  → STATE_MODEL.md                                   │
+├─────────────────────────────────────────────────────┤
+│  LAYER 2: GRAPH MODEL                               │
+│  "What exists and how is it connected?"             │
+│  → GRAPH_MODEL.md                                   │
+├─────────────────────────────────────────────────────┤
+│  LAYER 1: DIMENSIONS (v1-v9)                        │
+│  "The deep knowledge behind each facet"             │
+│  NOT replaced by the graph — referenced BY it       │
+│  → v1-layered/ through v9-evolutionary/             │
+└─────────────────────────────────────────────────────┘
 ```
 
 ---
