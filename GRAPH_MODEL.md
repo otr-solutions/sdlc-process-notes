@@ -146,6 +146,8 @@ M3 Context   ──CONSTRAINS──▶ L2 Decomposition
    "Domain boundaries constrain how you can decompose"
 ```
 
+**Note on BLOCKED state**: When a CONSTRAINS edge is ACTIVE and the constraining node's precondition is not yet met, the target node enters a BLOCKED state — it cannot transition until the constraint source is satisfied. See [STATE_MODEL.md](./STATE_MODEL.md) for full precondition and BLOCKED state details.
+
 ### TENSIONS (A ↔ B) — Opposing Forces
 
 Bidirectional. Neither node is "right" — the system must **negotiate** between them. These are where human judgment is most critical.
@@ -383,3 +385,19 @@ If the system is a graph with 18 nodes, 6 edge types, 7 attributes, and 12 opera
 6. **What operations are pending** — what needs to happen next
 
 **TENSIONS are the most valuable thing to surface.** Everything else is plumbing — information flowing, constraints applying, sequences unfolding. But tensions are where the interesting decisions live, where trade-offs get made, and where human judgment is irreplaceable.
+
+---
+
+## Relationship to State Model
+
+This graph model defines the **structure** — what exists and how things relate. The companion [STATE_MODEL.md](./STATE_MODEL.md) defines the **dynamics** — how the graph moves, what states nodes and edges can be in, how transitions happen, and who has authority to trigger them.
+
+| This Document Defines | State Model Defines |
+|----------------------|---------------------|
+| What the 18 nodes ARE | What states each node can be IN |
+| What the 6 edge types ARE | What states each edge can be IN |
+| What the 3 node attributes ARE | How attributes influence transitions |
+| What the 4 edge attributes ARE | How edge quality triggers state changes |
+| What the 12 operations ARE | When and how operations fire to cause transitions |
+
+The graph is the **anatomy**. The state model is the **physiology**.
